@@ -142,7 +142,7 @@
         </details>
         <div class="btn-row">
           <a class="btn solid" href="https://casa-azul-demo.vercel.app" target="_blank" rel="noopener">Live demo ↗</a>
-          <a class="btn" href="https://github.com/Joshumaster123/casa-azul-admin" target="_blank" rel="noopener">Source ↗</a>
+          <span class="btn off"><span data-en>Private repo · walkthrough on request</span><span data-es>Repo privado · recorrido a pedido</span></span>
         </div>
       </div>
       <div>
@@ -181,7 +181,7 @@
         </details>
         <div class="btn-row">
           <a class="btn solid" href="https://motoya-five.vercel.app" target="_blank" rel="noopener">Live demo ↗</a>
-          <a class="btn" href="https://github.com/Joshumaster123/motoya" target="_blank" rel="noopener">Source ↗</a>
+          <span class="btn off"><span data-en>Private repo · walkthrough on request</span><span data-es>Repo privado · recorrido a pedido</span></span>
         </div>
       </div>
       <div class="frame">
@@ -230,19 +230,35 @@
     <!-- Winter Arc -->
     <article class="proj rv" id="winter">
       <div class="info">
-        <p class="pill soon"><i></i><span data-en>Built · demo deploying</span><span data-es>Construido · demo en despliegue</span></p>
+        <p class="pill"><i></i><span data-en>Live demo · fictional data</span><span data-es>Demo en vivo · datos ficticios</span></p>
         <h3>Winter Arc</h3>
-        <p data-en>A 120-day personal fitness PWA: weight and body composition, macros, training volume, PRs and estimated 1RM. The scoring, XP and strength logic are pure functions with unit tests.</p>
-        <p data-es>Una PWA personal de fitness de 120 días: peso y composición corporal, macros, volumen de entrenamiento, PRs y 1RM estimado. La lógica de puntaje, XP y fuerza son funciones puras con tests unitarios.</p>
-        <ul class="tags"><li>Next.js</li><li>TypeScript</li><li>Supabase</li><li>PWA</li></ul>
-        <div class="btn-row">
-          <a class="btn" href="https://github.com/Joshumaster123/winter-arc" target="_blank" rel="noopener">Source ↗</a>
-          <span class="btn off"><span data-en>Live demo · soon</span><span data-es>Demo en vivo · pronto</span></span>
-        </div>
+        <p data-en>A 120-day personal fitness PWA: weight and body composition, macros, training volume, PRs and estimated 1RM. Built mobile-first; the live demo runs a fictional person on day 81 of the arc.</p>
+        <p data-es>Una PWA personal de fitness de 120 días: peso y composición corporal, macros, volumen de entrenamiento, PRs y 1RM estimado. Pensada primero para móvil; el demo en vivo corre con una persona ficticia en el día 81 del arco.</p>
+        <ul class="tags"><li>Next.js</li><li>TypeScript</li><li>Supabase</li><li>PWA</li><li>Vitest</li></ul>
+        <details class="why">
+          <summary><span data-en>Decisions &amp; lessons</span><span data-es>Decisiones y aprendizajes</span></summary>
+          <ul data-en>
+            <li><b>Pure domain logic.</b> Scoring, XP, weekly volume and strength (Epley 1RM) are plain functions with unit tests, separate from the UI and the database.</li>
+            <li><b>Honest numbers.</b> The app labels an estimated 1RM as an estimate, and the calorie target as orientative: the week is what counts.</li>
+            <li><b>Demo without a database.</b> A small in-memory stand-in for the Supabase queries feeds the same pages and components, and every write is blocked, so the real code path is unchanged.</li>
+          </ul>
+          <ul data-es>
+            <li><b>Lógica de dominio pura.</b> Puntaje, XP, volumen semanal y fuerza (1RM de Epley) son funciones simples con tests unitarios, separadas de la UI y la base de datos.</li>
+            <li><b>Números honestos.</b> La app rotula el 1RM estimado como estimación y la meta calórica como orientativa: lo que cuenta es la semana.</li>
+            <li><b>Demo sin base de datos.</b> Un reemplazo en memoria de las consultas a Supabase alimenta las mismas páginas y componentes, y toda escritura está bloqueada; el camino real no cambia.</li>
+          </ul>
+        </details>
+        <div class="btn-row"><a class="btn solid" href="https://winter-arc-demo.vercel.app" target="_blank" rel="noopener">Live demo ↗</a></div>
       </div>
-      <div class="flow" style="aspect-ratio:auto;min-height:160px;justify-content:center;text-align:center">
-        <div><div style="font-family:var(--display);font-size:clamp(34px,5vw,64px);line-height:.95;text-transform:uppercase">Train · Eat<br>Recover</div>
-        <p class="note"><span data-en>Screens land with the live demo</span><span data-es>Las pantallas llegan con el demo en vivo</span></p></div>
+      <div class="phones">
+        <div class="phone">
+          <div class="viewport" data-live="https://winter-arc-demo.vercel.app" data-w="390" data-h="820" data-title="Winter Arc live demo">
+            <img src="./img/wa-today.jpg" alt="Winter Arc home screen: day 81 of 120, nutrition, weekly budget" width="500" height="1000" loading="lazy" />
+            <button class="try" type="button"><span data-en>▶ Try it live</span><span data-es>▶ Probar</span></button>
+          </div>
+        </div>
+        <div class="phone"><div class="viewport"><img src="./img/wa-progress.jpg" alt="Progress screen: estimated bench 1RM and body composition trend" width="500" height="1000" loading="lazy" /></div></div>
+        <div class="phone"><div class="viewport"><img src="./img/wa-training.jpg" alt="Training screen with the current workout" width="500" height="1000" loading="lazy" /></div></div>
       </div>
     </article>
   </section>
