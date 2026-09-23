@@ -1,255 +1,348 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Josué Carrillo · AI-Native Product Builder</title>
-<meta name="description" content="Josué Carrillo — I turn messy processes into working systems. Software, AI agents and automation, shipped end to end." />
+<meta name="description" content="Josué Carrillo — I turn messy processes into working systems. Software, AI agents and automation, shipped end to end. Lima, Peru." />
+<meta property="og:title" content="Josué Carrillo · AI-Native Product Builder" />
+<meta property="og:description" content="I turn messy processes into working systems. Live demos, real n8n agent runs, and the decisions behind each project." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#efeeea" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23111%22/><text x=%2250%22 y=%2272%22 font-size=%2262%22 text-anchor=%22middle%22 fill=%22%23efeeea%22 font-family=%22Georgia,serif%22 font-style=%22italic%22>J</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<style>
-  :root{
-    --bg:#efeeea; --ink:#111; --gray:#5d5d5a; --line:#111; --soft:#d9d8d2;
-    --accent:#0b6e74; --card:#f7f6f2;
-    --display:"Anton","Impact","Arial Narrow",sans-serif;
-    --serif:"Instrument Serif",Georgia,serif;
-    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
-    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased}
-  a{color:inherit}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
-
-  /* top bar */
-  .bar{border-top:6px solid var(--ink);padding:14px 0;display:flex;justify-content:space-between;align-items:center;
-       font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray)}
-  .lang button{font:inherit;letter-spacing:inherit;text-transform:inherit;background:none;border:0;padding:2px 4px;cursor:pointer;color:var(--gray)}
-  .lang button[aria-pressed="true"]{color:var(--ink);border-bottom:2px solid var(--accent)}
-  .lang span{margin:0 2px}
-
-  /* hero */
-  .hero{padding:clamp(56px,11vw,150px) 0 clamp(40px,7vw,90px)}
-  h1{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.9;letter-spacing:-.01em;
-     font-size:clamp(64px,15.5vw,210px);margin:0}
-  .hero-row{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-top:clamp(20px,3vw,40px)}
-  .tagline{font-family:var(--serif);font-style:italic;font-size:clamp(28px,4.4vw,52px);line-height:1.08;margin:0;max-width:16ch}
-  .meta{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--gray);text-align:right}
-  .meta a{display:inline-block;margin-top:8px;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--accent)}
-  .meta a.cta{display:inline-block;margin-top:22px;padding:11px 20px;background:var(--ink);color:var(--bg);text-decoration:none;
-       border-bottom:0;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
-  .meta a.cta:hover{background:var(--accent)}
-
-  /* section heading */
-  .sec{margin-top:clamp(56px,8vw,110px)}
-  .sec-head{display:flex;align-items:baseline;justify-content:space-between;border-top:2px solid var(--ink);padding-top:12px;
-            font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
-  .sec-head b{font-weight:500}
-  .sec-head span{color:var(--gray)}
-
-  /* project rows */
-  .proj{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(24px,4vw,56px);align-items:center;
-        padding:clamp(28px,4vw,52px) 0;border-bottom:1px solid var(--soft)}
-  .proj:nth-of-type(even) .info{order:2}
-  .proj h3{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.95;font-size:clamp(34px,5vw,60px);margin:0 0 14px}
-  .proj p{color:var(--gray);font-size:16px;margin:0 0 16px;max-width:52ch}
-  .tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px;padding:0;list-style:none}
-  .tags li{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;border:1.5px solid var(--ink);padding:5px 9px}
-  .btns{display:flex;gap:10px;flex-wrap:wrap}
-  .btn{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
-       padding:10px 16px;border:1.5px solid var(--ink)}
-  .btn.solid{background:var(--ink);color:var(--bg)}
-  .btn.solid:hover{background:var(--accent);border-color:var(--accent)}
-  .btn.ghost:hover{background:var(--ink);color:var(--bg)}
-  .btn.off{border-style:dashed;color:var(--gray);border-color:var(--gray);cursor:default}
-  .status{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 10px;display:flex;align-items:center;gap:8px}
-  .status i{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block}
-  .status.soon{color:var(--gray)} .status.soon i{background:var(--gray)}
-
-  /* visuals */
-  .shot{border:1.5px solid var(--ink);background:#fff;aspect-ratio:16/10;overflow:hidden}
-  .shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
-  .panel{border:1.5px solid var(--ink);aspect-ratio:16/10;background:var(--card);display:flex;align-items:center;justify-content:center;
-         padding:24px;text-align:center}
-  .panel .big{font-family:var(--display);text-transform:uppercase;font-size:clamp(34px,5.4vw,70px);line-height:.95;color:var(--ink)}
-  .panel .note{display:block;margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray)}
-
-  /* n8n diagram */
-  .flow{border:1.5px solid var(--ink);background:var(--card);aspect-ratio:16/10;padding:clamp(14px,2.4vw,30px);
-        display:flex;align-items:center;gap:clamp(8px,1.6vw,20px);font-family:var(--mono);font-size:clamp(9.5px,1.05vw,12.5px);letter-spacing:.04em}
-  .node{border:1.5px solid var(--ink);background:#fff;padding:8px 10px;text-align:center;line-height:1.25}
-  .node.core{background:var(--ink);color:var(--bg);padding:14px 12px}
-  .node small{display:block;color:var(--gray);font-size:.86em;margin-top:3px}
-  .node.core small{color:#c9c8c2}
-  .arrow{flex:0 0 auto;font-size:1.5em;color:var(--accent)}
-  .col{display:flex;flex-direction:column;gap:8px;flex:1;min-width:0}
-  .col.tools{gap:10px}
-  .tool{display:flex;align-items:center;gap:6px}
-  .tool .node{flex:1}
-
-  /* loop chips */
-  .loop{border:1.5px solid var(--ink);background:var(--card);aspect-ratio:16/10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:20px}
-  .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
-  .chips span{font-family:var(--display);font-size:clamp(16px,2.3vw,28px);text-transform:uppercase;border:1.5px solid var(--ink);padding:6px 12px;background:#fff}
-  .chips span:not(:last-child)::after{content:"→";margin-left:10px;color:var(--accent);font-family:var(--mono)}
-  .chips span{display:inline-flex;align-items:center}
-  .loop .note{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray)}
-
-  /* about */
-  .about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);padding-top:28px}
-  .about p{font-size:clamp(18px,2vw,22px);line-height:1.5;margin:0 0 16px;max-width:38ch}
-  .about p.serif{font-family:var(--serif);font-size:clamp(26px,3.4vw,40px);line-height:1.12;max-width:20ch}
-  .skills h4{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin:0 0 8px;font-weight:500}
-  .skills ul{list-style:none;margin:0 0 20px;padding:0;display:flex;flex-wrap:wrap;gap:6px 8px}
-  .skills li{font-size:14px;border:1px solid var(--soft);background:var(--card);padding:4px 9px}
-
-  /* contact */
-  .contact{padding:28px 0 20px}
-  .contact h2{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(56px,13vw,170px);line-height:.9;margin:0 0 28px}
-  .rows a,.rows div{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid var(--soft);
-       text-decoration:none;font-size:18px}
-  .rows span:first-child{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);align-self:center}
-  .rows a:hover span:last-child{color:var(--accent)}
-  footer{border-top:6px solid var(--ink);margin-top:56px;padding:16px 0 28px;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray)}
-
-  [data-es]{display:none}
-  html[lang="es"] [data-en]{display:none}
-  html[lang="es"] [data-es]{display:revert}
-  html[lang="es"] .meta [data-es], html[lang="es"] .sec-head [data-es]{display:inline}
-
-  .info,.shot,.panel,.flow,.loop{min-width:0}
-  @media (max-width:820px){
-    .proj{grid-template-columns:minmax(0,1fr)}
-    .wrap{padding:0 20px}
-    .flow .col,.flow .tool{min-width:0}
-    .node{overflow-wrap:anywhere}
-    .proj:nth-of-type(even) .info{order:0}
-    .about{grid-template-columns:1fr}
-    .meta{text-align:left}
-    .flow{aspect-ratio:auto;flex-direction:column;align-items:stretch}
-    .arrow{transform:rotate(90deg);align-self:center}
-  }
-  @media (prefers-reduced-motion:no-preference){
-    .proj{animation:rise .6s ease both}
-    @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-  }
-</style>
+<link rel="stylesheet" href="./styles.css" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Josué Carrillo Paurinotto","jobTitle":"AI-native product builder","email":"mailto:josuecarrillop02@gmail.com","url":"https://github.com/Joshumaster123","address":{"@type":"PostalAddress","addressLocality":"Lima","addressCountry":"PE"},"alumniOf":"Universidad de Ingeniería y Tecnología (UTEC)"}
+</script>
 </head>
 <body>
-<div class="wrap">
+<a class="skip" href="#work">Skip to content</a>
 
-  <div class="bar">
-    <span>Lima, Perú</span>
-    <span class="lang"><button data-set="es" aria-pressed="false">ES</button><span>/</span><button data-set="en" aria-pressed="true">EN</button> &nbsp; <span id="clock"></span></span>
+<div class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Josué Carrillo">J.C.</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#work"><span data-en>Work</span><span data-es>Trabajo</span></a>
+      <a href="#agent"><span data-en>AI agent</span><span data-es>Agente IA</span></a>
+      <a href="#approach"><span data-en>Approach</span><span data-es>Enfoque</span></a>
+      <a href="#about"><span data-en>About</span><span data-es>Sobre mí</span></a>
+      <a href="#contact"><span data-en>Contact</span><span data-es>Contacto</span></a>
+    </nav>
+    <div class="tools">
+      <span class="clock" aria-hidden="true"></span>
+      <span class="lang"><button data-set="es" aria-pressed="false">ES</button>/<button data-set="en" aria-pressed="true">EN</button></span>
+      <button class="theme" aria-label="Toggle theme">◐</button>
+    </div>
   </div>
+  <div class="progress" aria-hidden="true"></div>
+</div>
 
+<main class="wrap" id="top">
+
+  <!-- ================= HERO ================= -->
   <header class="hero">
+    <p class="status"><span class="dot"></span><span data-en>Open to remote roles · Lima, Peru</span><span data-es>Disponible para roles remotos · Lima, Perú</span></p>
     <h1>Josué<br>Carrillo</h1>
     <div class="hero-row">
       <p class="tagline"><span data-en>I turn messy processes into working systems.</span><span data-es>Convierto procesos desordenados en sistemas que funcionan.</span></p>
-      <div class="meta">
-        <span data-en>AI-native product builder<br>Software · Agents · Automation</span>
-        <span data-es>Product builder nativo en IA<br>Software · Agentes · Automatización</span><br>
-        <a href="mailto:josuecarrillop02@gmail.com">josuecarrillop02@gmail.com</a><br>
-        <a class="cta" href="./resume.pdf" download><span data-en>Download résumé</span><span data-es>Descargar CV</span></a>
+      <div class="hero-side">
+        <p data-en>AI-native product builder. I ship the whole chain — interface, data, automation, deploy — and check it works with real data before I call it done.</p>
+        <p data-es>Product builder nativo en IA. Entrego la cadena completa — interfaz, datos, automatización, despliegue — y verifico que funcione con datos reales antes de darla por terminada.</p>
+        <div class="btn-row">
+          <a class="btn solid" href="#work"><span data-en>See the work ↓</span><span data-es>Ver trabajo ↓</span></a>
+          <a class="btn" href="./resume.pdf" download><span data-en>Résumé (PDF)</span><span data-es>CV (PDF)</span></a>
+        </div>
       </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>5</b><span data-en>products built end to end</span><span data-es>productos construidos de punta a punta</span></div>
+      <div class="stat"><b>240+</b><span data-en>automated tests in my agent runtime</span><span data-es>tests automáticos en mi runtime de agentes</span></div>
+      <div class="stat"><b>S/350K+</b><span data-en>budgets managed as finance lead (events)</span><span data-es>presupuestos gestionados como líder financiero (eventos)</span></div>
+      <div class="stat"><b>2</b><span data-en>n8n automations — 1 live in production</span><span data-es>automatizaciones en n8n — 1 en producción</span></div>
     </div>
   </header>
 
+  <div class="marquee" aria-hidden="true"><div>
+    <span>TypeScript</span><span>React</span><span>Next.js</span><span>Laravel</span><span>PostgreSQL</span><span>Supabase</span><span>n8n</span><span>AI agents</span><span>Tool-calling</span><span>OpenAI API</span><span>Claude Code</span><span>Codex</span><span>Python</span><span>SQL</span><span>Vercel</span><span>Git worktrees</span><span>Testing</span>
+    <span>TypeScript</span><span>React</span><span>Next.js</span><span>Laravel</span><span>PostgreSQL</span><span>Supabase</span><span>n8n</span><span>AI agents</span><span>Tool-calling</span><span>OpenAI API</span><span>Claude Code</span><span>Codex</span><span>Python</span><span>SQL</span><span>Vercel</span><span>Git worktrees</span><span>Testing</span>
+  </div></div>
+
+  <!-- ================= WORK ================= -->
   <section class="sec" id="work">
-    <div class="sec-head"><b><span data-en>Selected work</span><span data-es>Trabajo seleccionado</span></b><span>01 — 05</span></div>
+    <div class="sec-head"><b><span data-en>Selected work</span><span data-es>Trabajo seleccionado</span></b><span>01</span></div>
 
     <!-- Press & Breathe -->
-    <article class="proj">
+    <article class="proj rv">
       <div class="info">
-        <p class="status"><i></i><span data-en>Live · in production</span><span data-es>En vivo · producción</span></p>
+        <p class="pill"><i></i><span data-en>Live · in production</span><span data-es>En vivo · producción</span></p>
         <h3>Press &amp; Breathe</h3>
-        <p data-en>A full rebuild of a yoga-teacher-training program's site. The whole chain, shipped and verified end to end: public application form, database, an n8n automation, and a personalized confirmation email.</p>
-        <p data-es>Reconstrucción completa del sitio de un programa de formación de profesores de yoga. Toda la cadena, entregada y verificada de punta a punta: formulario público, base de datos, automatización en n8n y correo de confirmación personalizado.</p>
+        <p data-en>A full rebuild of a yoga-teacher-training program's site. The whole chain, verified with a real submission: public application form, database, an n8n automation, and a personalized confirmation email.</p>
+        <p data-es>Reconstrucción completa del sitio de un programa de formación de profesores de yoga. Toda la cadena, verificada con un envío real: formulario público, base de datos, automatización en n8n y correo de confirmación personalizado.</p>
         <ul class="tags"><li>Next.js</li><li>Supabase</li><li>n8n</li><li>Vercel</li></ul>
-        <div class="btns"><a class="btn solid" href="https://pressbreathe.vercel.app" target="_blank" rel="noopener">Open site ↗</a></div>
+        <details class="why">
+          <summary><span data-en>Decisions &amp; lessons</span><span data-es>Decisiones y aprendizajes</span></summary>
+          <ul data-en>
+            <li><b>Locked-down writes.</b> Row-level security is on; applications are inserted only through a server route, never from the browser.</li>
+            <li><b>Authenticated webhook.</b> The n8n webhook only runs when a shared-secret header matches, so nobody can trigger emails by guessing the URL.</li>
+            <li><b>Bug I hit:</b> a pasted secret carried a trailing newline and silently broke the call. The route now trims every env var.</li>
+            <li><b>Done means verified:</b> I submitted a real test application, confirmed the row and both emails, then deleted the test row.</li>
+          </ul>
+          <ul data-es>
+            <li><b>Escrituras protegidas.</b> Seguridad a nivel de fila activada; las aplicaciones se insertan solo desde una ruta de servidor, nunca desde el navegador.</li>
+            <li><b>Webhook autenticado.</b> El webhook de n8n solo corre si un header secreto coincide; nadie puede disparar correos adivinando la URL.</li>
+            <li><b>Bug que encontré:</b> un secreto pegado traía un salto de línea al final y rompía la llamada en silencio. Ahora la ruta limpia cada variable de entorno.</li>
+            <li><b>Terminado = verificado:</b> envié una aplicación real de prueba, confirmé la fila y los dos correos, y borré la fila de prueba.</li>
+          </ul>
+        </details>
+        <div class="btn-row"><a class="btn solid" href="https://pressbreathe.vercel.app" target="_blank" rel="noopener">Live site ↗</a></div>
       </div>
-      <div class="shot"><img src="./img/pressbreathe.png" alt="Press &amp; Breathe home page" loading="lazy" /></div>
+      <div class="frame">
+        <div class="chrome"><i></i><i></i><i></i><span class="url">pressbreathe.vercel.app</span></div>
+        <div class="viewport" data-live="https://pressbreathe.vercel.app" data-w="1280" data-h="800" data-title="Press &amp; Breathe live site">
+          <img src="./img/pressbreathe.jpg" alt="Press &amp; Breathe home page" width="1400" height="875" loading="lazy" />
+          <button class="try" type="button"><span data-en>▶ Try it live</span><span data-es>▶ Probar en vivo</span></button>
+        </div>
+      </div>
     </article>
 
-    <!-- AI Leads Agent -->
-    <article class="proj">
+    <!-- Casa Azul -->
+    <article class="proj rv">
       <div class="info">
-        <p class="status"><i></i><span data-en>Working demo · n8n</span><span data-es>Demo funcional · n8n</span></p>
-        <h3>AI Leads Agent</h3>
-        <p data-en>A conversational agent that qualifies real-estate leads the way a person would: it remembers the chat, saves what it learns (zone, budget, property type, urgency) as it goes, and emails a human advisor the moment someone is ready to talk.</p>
-        <p data-es>Un agente conversacional que califica leads inmobiliarios como lo haría una persona: recuerda la conversación, guarda lo que aprende (zona, presupuesto, tipo de propiedad, urgencia) y avisa por correo a un asesor humano cuando alguien está listo para hablar.</p>
-        <ul class="tags"><li>n8n</li><li>AI Agent</li><li>Tool-calling</li><li>Memory</li><li>Data Tables</li></ul>
-        <div class="btns"><span class="btn off"><span data-en>Live chat on request</span><span data-es>Chat en vivo a pedido</span></span></div>
-      </div>
-      <div class="flow" role="img" aria-label="Workflow: chat message goes to an AI agent with memory and a language model, which can call two tools: save lead to a data table, and notify an advisor by email.">
-        <div class="node">Chat<small>message in</small></div>
-        <div class="arrow">→</div>
-        <div class="col">
-          <div class="node core">AI Agent<small>tool-calling loop</small></div>
-          <div class="node">Memory<small>per-lead session</small></div>
-          <div class="node">LLM<small>GPT</small></div>
+        <p class="pill"><i></i><span data-en>Live demo · fictional data</span><span data-es>Demo en vivo · datos ficticios</span></p>
+        <h3>Casa Azul</h3>
+        <p data-en>Internal admin for a wellness venue: bookings, payments and refunds, client history, a calendar, and a finance view for weekly and monthly reporting. The live demo runs on fictional data and blocks writes.</p>
+        <p data-es>Panel interno para un espacio de bienestar: reservas, pagos y reembolsos, historial de clientes, calendario y vista de finanzas para reportes semanales y mensuales. El demo en vivo usa datos ficticios y bloquea escrituras.</p>
+        <ul class="tags"><li>Next.js 16</li><li>TypeScript</li><li>Supabase</li><li>Tailwind</li></ul>
+        <details class="why">
+          <summary><span data-en>Decisions &amp; lessons</span><span data-es>Decisiones y aprendizajes</span></summary>
+          <ul data-en>
+            <li><b>Status is derived, not typed.</b> A reservation's state comes from the money received; "cancelled" is the only manual state, and cancelling keeps the payments.</li>
+            <li><b>Money rules:</b> amounts are always positive and refunds subtract; income is counted by payment date, not by event date.</li>
+            <li><b>Timezone-safe:</b> dates are plain YYYY-MM-DD strings in Lima time, which avoids the classic UTC off-by-one.</li>
+            <li><b>Caught by looking:</b> reviewing screenshots I found the income chart never drew its bars (percentage heights collapsed inside flex). Fixed with pixel heights.</li>
+            <li><b>Demo mode:</b> one switch swaps the data layer for date-relative fixtures and skips auth, so the same UI is public without exposing anything real.</li>
+          </ul>
+          <ul data-es>
+            <li><b>El estado se deriva, no se escribe.</b> El estado de una reserva sale del dinero recibido; "cancelada" es el único estado manual y conserva los pagos.</li>
+            <li><b>Reglas de dinero:</b> los montos son siempre positivos y los reembolsos restan; el ingreso se cuenta por fecha de pago, no de evento.</li>
+            <li><b>Zona horaria segura:</b> fechas como texto YYYY-MM-DD en hora de Lima, evitando el clásico desfase UTC.</li>
+            <li><b>Detectado mirando:</b> al revisar capturas vi que el gráfico de ingresos nunca dibujaba las barras (alturas en % colapsadas en flex). Corregido con alturas en píxeles.</li>
+            <li><b>Modo demo:</b> un interruptor cambia la capa de datos por fixtures relativos a la fecha y omite el login; la misma UI es pública sin exponer nada real.</li>
+          </ul>
+        </details>
+        <div class="btn-row">
+          <a class="btn solid" href="https://casa-azul-demo.vercel.app" target="_blank" rel="noopener">Live demo ↗</a>
+          <a class="btn" href="https://github.com/Joshumaster123/casa-azul-admin" target="_blank" rel="noopener">Source ↗</a>
         </div>
-        <div class="arrow">→</div>
-        <div class="col tools">
-          <div class="tool"><div class="node">Save lead<small>upsert by session</small></div><span class="arrow">→</span><div class="node">Data Table</div></div>
-          <div class="tool"><div class="node">Notify advisor<small>only if urgent</small></div><span class="arrow">→</span><div class="node">Gmail</div></div>
+      </div>
+      <div>
+        <div class="frame">
+          <div class="chrome"><i></i><i></i><i></i><span class="url">casa-azul-demo.vercel.app</span></div>
+          <div class="viewport" data-live="https://casa-azul-demo.vercel.app" data-w="1280" data-h="800" data-title="Casa Azul live demo">
+            <img src="./img/casa-home.jpg" alt="Casa Azul dashboard with income, upcoming bookings and pending balances" width="1400" height="875" loading="lazy" />
+            <button class="try" type="button"><span data-en>▶ Try it live</span><span data-es>▶ Probar en vivo</span></button>
+          </div>
+        </div>
+        <div class="shots">
+          <img src="./img/casa-finanzas.jpg" alt="Finance view with weekly income chart" width="1400" height="875" loading="lazy" />
+          <img src="./img/casa-calendario.jpg" alt="Monthly calendar of bookings by room" width="1400" height="875" loading="lazy" />
         </div>
       </div>
     </article>
 
     <!-- MotoYa -->
-    <article class="proj">
+    <article class="proj rv">
       <div class="info">
-        <p class="status soon"><i></i><span data-en>Demo · live link soon</span><span data-es>Demo · link en vivo pronto</span></p>
+        <p class="pill"><i></i><span data-en>Live demo · front end only</span><span data-es>Demo en vivo · solo front end</span></p>
         <h3>MotoYa</h3>
-        <p data-en>A visual product demo for a mototaxi ride-hailing concept, built for an investor pitch: map, route, and rider-sets-the-price booking flow. Front end only, by design.</p>
-        <p data-es>Demo visual de un concepto de mototaxi por app, hecho para un pitch a inversionistas: mapa, ruta y reserva donde el pasajero propone el precio. Solo front end, a propósito.</p>
+        <p data-en>A visual product demo for a mototaxi ride-hailing concept, built for an investor pitch: map, route, and a rider-sets-the-price booking flow. Front end only, and labelled as a demo on screen.</p>
+        <p data-es>Demo visual de un concepto de mototaxi por app, hecho para un pitch a inversionistas: mapa, ruta y reserva donde el pasajero propone el precio. Solo front end, y rotulado como demo en pantalla.</p>
         <ul class="tags"><li>React</li><li>Vite</li><li>CSS animation</li></ul>
-        <div class="btns"><a class="btn ghost" href="https://github.com/Joshumaster123/motoya" target="_blank" rel="noopener">Source ↗</a><span class="btn off">Live demo · soon</span></div>
+        <details class="why">
+          <summary><span data-en>Decisions &amp; lessons</span><span data-es>Decisiones y aprendizajes</span></summary>
+          <ul data-en>
+            <li><b>A pitch artifact, not a product.</b> No backend on purpose: the goal was for an investor to feel one flow in ten seconds.</li>
+            <li><b>Honest by default:</b> the screen itself says it is a visual demo, not a real app.</li>
+          </ul>
+          <ul data-es>
+            <li><b>Un artefacto de pitch, no un producto.</b> Sin backend a propósito: la meta era que un inversionista sintiera un flujo en diez segundos.</li>
+            <li><b>Honesto por defecto:</b> la propia pantalla dice que es un demo visual, no una app real.</li>
+          </ul>
+        </details>
+        <div class="btn-row">
+          <a class="btn solid" href="https://motoya-five.vercel.app" target="_blank" rel="noopener">Live demo ↗</a>
+          <a class="btn" href="https://github.com/Joshumaster123/motoya" target="_blank" rel="noopener">Source ↗</a>
+        </div>
       </div>
-      <div class="shot"><img src="./img/motoya.png" alt="MotoYa mobile booking screen" loading="lazy" style="object-position:center" /></div>
-    </article>
-
-    <!-- Casa Azul -->
-    <article class="proj">
-      <div class="info">
-        <p class="status soon"><i></i><span data-en>Built · deploying</span><span data-es>Construido · en despliegue</span></p>
-        <h3>Casa Azul</h3>
-        <p data-en>Internal admin for a wellness venue: bookings, payments and refunds, client history, a calendar, and a finance view for weekly and monthly reporting. Reservation status is derived from payments, not typed in by hand.</p>
-        <p data-es>Panel interno para un espacio de bienestar: reservas, pagos y reembolsos, historial de clientes, calendario y vista de finanzas para reportes semanales y mensuales. El estado de la reserva se deriva de los pagos, no se escribe a mano.</p>
-        <ul class="tags"><li>Next.js</li><li>TypeScript</li><li>Supabase</li><li>Tailwind</li></ul>
-        <div class="btns"><a class="btn ghost" href="https://github.com/Joshumaster123/casa-azul-admin" target="_blank" rel="noopener">Source ↗</a><span class="btn off">Live demo · soon</span></div>
+      <div class="frame">
+        <div class="chrome"><i></i><i></i><i></i><span class="url">motoya-five.vercel.app</span></div>
+        <div class="viewport contain" data-live="https://motoya-five.vercel.app" data-w="1000" data-h="625" data-title="MotoYa live demo">
+          <img src="./img/motoya.jpg" alt="MotoYa mobile booking screen with map and route" width="1400" height="875" loading="lazy" />
+          <button class="try" type="button"><span data-en>▶ Try it live</span><span data-es>▶ Probar en vivo</span></button>
+        </div>
       </div>
-      <div class="panel"><div><span class="big">Bookings<br>+ Payments</span><span class="note"><span data-en>Screenshots after deploy</span><span data-es>Capturas tras el despliegue</span></span></div></div>
     </article>
 
     <!-- Personal AI OS -->
-    <article class="proj">
+    <article class="proj rv">
       <div class="info">
-        <p class="status"><i></i><span data-en>Running · always-on</span><span data-es>Corriendo · siempre activo</span></p>
+        <p class="pill"><i></i><span data-en>Running · always-on machine</span><span data-es>Corriendo · máquina siempre activa</span></p>
         <h3>Personal AI OS</h3>
-        <p data-en>A persistent orchestrator-plus-workers agent system on a dedicated always-on machine. Deliberately constrained: no unrestricted shell, git-policy hardening, sandboxed worktrees, explicit handoffs, and 300+ tests. Minimal, auditable, correct over feature count.</p>
-        <p data-es>Un sistema de agentes persistente (orquestador + workers) en una máquina dedicada siempre encendida. Con restricciones a propósito: sin shell irrestricto, políticas de git, worktrees aislados, traspasos explícitos y más de 300 tests. Mínimo, auditable y correcto antes que más funciones.</p>
-        <ul class="tags"><li>Python</li><li>Agents</li><li>Sandboxing</li><li>Testing</li></ul>
-        <div class="btns"><span class="btn off"><span data-en>Private repo</span><span data-es>Repo privado</span></span></div>
+        <p data-en>A persistent orchestrator-plus-workers agent system on a dedicated always-on machine. Constrained on purpose: the model can only do what a permission policy explicitly allows, and every run leaves an auditable trail.</p>
+        <p data-es>Un sistema de agentes persistente (orquestador + workers) en una máquina dedicada siempre activa. Con restricciones a propósito: el modelo solo puede hacer lo que una política de permisos permite explícitamente, y cada ejecución deja un rastro auditable.</p>
+        <ul class="tags"><li>Python</li><li>Agents</li><li>Sandboxing</li><li>Tests</li></ul>
+        <details class="why" open>
+          <summary><span data-en>Decisions &amp; lessons</span><span data-es>Decisiones y aprendizajes</span></summary>
+          <ul data-en>
+            <li><b>No unrestricted shell.</b> Tools are allowlisted per run; git is default-deny with only local commands permitted; push, pull and clone are blocked.</li>
+            <li><b>Isolation:</b> workers operate in detached worktrees, so a run can never touch the source checkout.</li>
+            <li><b>Delegation is explicit:</b> a parent hands work to a worker through a durable, idempotent handoff record, and the run resumes safely after a crash.</li>
+            <li><b>Verify before trusting:</b> every change is reviewed and its tests run independently. 240+ automated tests.</li>
+          </ul>
+          <ul data-es>
+            <li><b>Sin shell irrestricto.</b> Las herramientas se permiten por ejecución; git es default-deny y solo permite comandos locales; push, pull y clone están bloqueados.</li>
+            <li><b>Aislamiento:</b> los workers operan en worktrees separados, así que una ejecución nunca toca el checkout original.</li>
+            <li><b>La delegación es explícita:</b> un padre entrega trabajo a un worker mediante un registro de traspaso durable e idempotente, y la ejecución se reanuda de forma segura tras una caída.</li>
+            <li><b>Verificar antes de confiar:</b> cada cambio se revisa y sus tests se corren de forma independiente. Más de 240 tests automáticos.</li>
+          </ul>
+        </details>
+        <div class="btn-row"><span class="btn off"><span data-en>Private repo · walkthrough on request</span><span data-es>Repo privado · recorrido a pedido</span></span></div>
       </div>
-      <div class="loop"><div class="chips"><span>Observe</span><span>Plan</span><span>Act</span><span>Verify</span><span>Reflect</span></div><span class="note">agent loop · sandboxed · resumable</span></div>
+      <div class="flow loopflow" role="img" aria-label="Agent loop: observe, plan, act, verify, reflect, running inside a sandbox with a permission policy.">
+        <div class="node">Observe<small>state + goal</small></div><span class="arrow">→</span>
+        <div class="node">Plan</div><span class="arrow">→</span>
+        <div class="node core">Act<small>allowlisted tools only</small></div><span class="arrow">→</span>
+        <div class="node">Verify</div><span class="arrow">→</span>
+        <div class="node">Reflect<small>continue · finish · block</small></div>
+      </div>
+    </article>
+
+    <!-- Winter Arc -->
+    <article class="proj rv" id="winter">
+      <div class="info">
+        <p class="pill soon"><i></i><span data-en>Built · demo deploying</span><span data-es>Construido · demo en despliegue</span></p>
+        <h3>Winter Arc</h3>
+        <p data-en>A 120-day personal fitness PWA: weight and body composition, macros, training volume, PRs and estimated 1RM. The scoring, XP and strength logic are pure functions with unit tests.</p>
+        <p data-es>Una PWA personal de fitness de 120 días: peso y composición corporal, macros, volumen de entrenamiento, PRs y 1RM estimado. La lógica de puntaje, XP y fuerza son funciones puras con tests unitarios.</p>
+        <ul class="tags"><li>Next.js</li><li>TypeScript</li><li>Supabase</li><li>PWA</li></ul>
+        <div class="btn-row">
+          <a class="btn" href="https://github.com/Joshumaster123/winter-arc" target="_blank" rel="noopener">Source ↗</a>
+          <span class="btn off"><span data-en>Live demo · soon</span><span data-es>Demo en vivo · pronto</span></span>
+        </div>
+      </div>
+      <div class="flow" style="aspect-ratio:auto;min-height:160px;justify-content:center;text-align:center">
+        <div><div style="font-family:var(--display);font-size:clamp(34px,5vw,64px);line-height:.95;text-transform:uppercase">Train · Eat<br>Recover</div>
+        <p class="note"><span data-en>Screens land with the live demo</span><span data-es>Las pantallas llegan con el demo en vivo</span></p></div>
+      </div>
     </article>
   </section>
 
+  <!-- ================= AI AGENT ================= -->
+  <section class="sec" id="agent">
+    <div class="sec-head"><b><span data-en>AI agent · n8n</span><span data-es>Agente de IA · n8n</span></b><span>02</span></div>
+    <p class="lead rv"><span data-en>A lead-qualifying agent that behaves like a person and saves like a system.</span><span data-es>Un agente que califica leads como una persona y guarda como un sistema.</span></p>
+
+    <div class="rv agentflow">
+        <div class="flow" role="img" aria-label="Workflow: a chat message goes to an AI agent with memory and a language model, which can call two tools: save the lead to a data table, or notify an advisor by email.">
+          <div class="node">Chat<small>message in</small></div><span class="arrow">→</span>
+          <div class="col">
+            <div class="node core">AI Agent<small>tool-calling loop</small></div>
+            <div class="node">Memory<small>per-lead session</small></div>
+            <div class="node">LLM<small>GPT</small></div>
+          </div>
+          <span class="arrow">→</span>
+          <div class="col">
+            <div class="tool"><div class="node">Save lead<small>upsert by session</small></div><span class="arrow">→</span><div class="node">Data Table</div></div>
+            <div class="tool"><div class="node">Notify advisor<small>only if urgent</small></div><span class="arrow">→</span><div class="node">Gmail</div></div>
+          </div>
+        </div>
+      </div>
+
+    <div class="agent">
+      <div class="rv">
+        <ul class="decisions">
+          <li data-en><b>Tools, not parsing.</b> The agent calls a "save lead" tool with structured fields as it learns them, instead of me scraping its prose afterwards.</li>
+          <li data-es><b>Herramientas, no parseo.</b> El agente llama a una herramienta "guardar lead" con campos estructurados a medida que los aprende, en vez de que yo extraiga datos de su texto después.</li>
+          <li data-en><b>Upsert by session.</b> Partial info updates the same lead; nothing gets duplicated mid-conversation.</li>
+          <li data-es><b>Upsert por sesión.</b> La información parcial actualiza el mismo lead; nada se duplica a mitad de la conversación.</li>
+          <li data-en><b>Guardrails in the prompt and the wiring.</b> It never invents listings or prices, and only emails a human when urgency is high.</li>
+          <li data-es><b>Límites en el prompt y en el cableado.</b> Nunca inventa propiedades ni precios, y solo escribe a un humano cuando la urgencia es alta.</li>
+          <li data-en><b>Bug found in the logs:</b> the model rejected a <code>temperature</code> setting with a 400. I read the execution trace, removed the parameter, and re-ran the flow to confirm.</li>
+          <li data-es><b>Bug hallado en los logs:</b> el modelo rechazó un parámetro <code>temperature</code> con un 400. Leí la traza de ejecución, quité el parámetro y volví a correr el flujo para confirmar.</li>
+        </ul>
+      </div>
+
+      <div class="rv">
+        <div class="runs">
+          <div class="run">
+            <header><span data-en>Run 1 · browsing</span><span data-es>Ejecución 1 · explorando</span><span class="badge low">urgency: low</span></header>
+            <div class="msg"><small data-en>Lead wrote</small><small data-es>El lead escribió</small><div class="bubble-user">Hola! Estoy viendo opciones para comprar mi primer depa, algo por Magdalena o Pueblo Libre, máximo 180 mil dólares. Sin apuro, en unos 6 meses.</div></div>
+            <pre class="saved"><span class="k">zona</span>: <span class="v">"Magdalena; Pueblo Libre"</span>
+<span class="k">presupuesto</span>: <span class="v">"Hasta USD 180,000"</span>
+<span class="k">tipo_propiedad</span>: <span class="v">"departamento"</span>
+<span class="k">urgencia</span>: <span class="v">"baja"</span>  <span class="k">estado</span>: <span class="v">"calificando"</span></pre>
+            <div class="msg" style="padding-top:0"><small data-en>Agent replied</small><small data-es>El agente respondió</small><div class="bubble-bot">¡Perfecto, gracias por contarme! ¿Cómo te llamas? (así te guardo y te contacto si surge algo que te pueda interesar)</div></div>
+          </div>
+
+          <div class="run">
+            <header><span data-en>Run 2 · name captured</span><span data-es>Ejecución 2 · captura el nombre</span><span class="badge mid">urgency: medium</span></header>
+            <div class="msg"><small data-en>Lead wrote</small><small data-es>El lead escribió</small><div class="bubble-user">Buenas, soy Rocío Vargas. Busco alquilar una casa con jardín en La Molina, hasta 2,500 soles al mes. Me mudo el próximo mes.</div></div>
+            <pre class="saved"><span class="k">nombre</span>: <span class="v">"Rocío Vargas"</span>  <span class="k">zona</span>: <span class="v">"La Molina"</span>
+<span class="k">presupuesto</span>: <span class="v">"hasta 2,500 soles/mes"</span>
+<span class="k">tipo_propiedad</span>: <span class="v">"casa con jardín"</span>
+<span class="k">urgencia</span>: <span class="v">"media"</span>  <span class="k">estado</span>: <span class="v">"calificando"</span></pre>
+            <div class="msg" style="padding-top:0"><small data-en>Agent replied</small><small data-es>El agente respondió</small><div class="bubble-bot">¡Hola Rocío, un gusto! Me alegra ayudarte con la búsqueda de una casa con jardín en La Molina dentro de tu presupuesto. ¿Me podrías compartir tu teléfono o correo para contactarte y coordinar el envío de opciones y posibles visitas?</div></div>
+          </div>
+
+          <div class="run">
+            <header><span data-en>Run 3 · hands off to a human</span><span data-es>Ejecución 3 · pasa a un humano</span><span class="badge high">urgency: high</span></header>
+            <div class="msg"><small data-en>Lead wrote</small><small data-es>El lead escribió</small><div class="bubble-user">Necesito hablar con un asesor ya. Quiero ver un terreno en Cieneguilla esta semana, tengo el presupuesto listo, 90 mil dólares. Soy Martín, mi cel es 987 654 321.</div></div>
+            <pre class="saved"><span class="k">nombre</span>: <span class="v">"Martín"</span>  <span class="k">contacto</span>: <span class="v">"987 654 321"</span>
+<span class="k">zona</span>: <span class="v">"Cieneguilla"</span>  <span class="k">tipo_propiedad</span>: <span class="v">"terreno"</span>
+<span class="k">urgencia</span>: <span class="v">"alta"</span>  <span class="k">estado</span>: <span class="v">"derivado_asesor"</span>
+<span class="mail">✉ advisor emailed → "Lead urgente: terreno en Cieneguilla"</span></pre>
+            <div class="msg" style="padding-top:0"><small data-en>Agent replied</small><small data-es>El agente respondió</small><div class="bubble-bot">Perfecto Martín — ya notifiqué a un asesor para que te contacte cuanto antes y guardé tus datos. ¿Hay algún día y hora esta semana que te venga mejor para la visita?</div></div>
+          </div>
+        </div>
+        <p class="note"><span data-en>Real executions from my n8n instance, single turn each. Live chat available in interviews.</span><span data-es>Ejecuciones reales de mi instancia de n8n, un turno cada una. Chat en vivo disponible en entrevistas.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= APPROACH ================= -->
+  <section class="sec" id="approach">
+    <div class="sec-head"><b><span data-en>How I work</span><span data-es>Cómo trabajo</span></b><span>03</span></div>
+    <div class="principles rv">
+      <div class="principle"><b data-en>Verify, don't trust</b><b data-es>Verificar, no confiar</b>
+        <p data-en>I use AI coding agents every day, and I read, run and try to break everything they produce before it ships.</p>
+        <p data-es>Uso agentes de código con IA todos los días, y leo, ejecuto e intento romper todo lo que producen antes de entregarlo.</p></div>
+      <div class="principle"><b data-en>Boring on purpose</b><b data-es>Aburrido a propósito</b>
+        <p data-en>Allowlists, tests, small changes. Minimal and auditable beats feature count.</p>
+        <p data-es>Listas permitidas, tests, cambios pequeños. Mínimo y auditable antes que más funciones.</p></div>
+      <div class="principle"><b data-en>Ship the whole chain</b><b data-es>Entregar la cadena</b>
+        <p data-en>Form to database to automation to email to deploy — then test it with real data.</p>
+        <p data-es>Del formulario a la base de datos, a la automatización, al correo y al despliegue — y probarlo con datos reales.</p></div>
+      <div class="principle"><b data-en>Say what's real</b><b data-es>Decir qué es real</b>
+        <p data-en>Demos are labelled as demos, fictional data is flagged, and I list what I haven't built yet.</p>
+        <p data-es>Los demos se rotulan como demos, los datos ficticios se marcan, y digo lo que aún no he construido.</p></div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
   <section class="sec" id="about">
-    <div class="sec-head"><b><span data-en>About</span><span data-es>Sobre mí</span></b><span>06</span></div>
+    <div class="sec-head"><b><span data-en>About</span><span data-es>Sobre mí</span></b><span>04</span></div>
     <div class="about">
       <div>
         <p class="serif" data-en>Industrial engineer by training, builder by practice.</p>
         <p class="serif" data-es>Ingeniero industrial de formación, builder por práctica.</p>
-        <p data-en>I'm at UTEC in Lima and, since August 2026, on the team building UNO, an AI-native platform for running companies. I own its Communications experience and built an AI agent with human-authorized, exactly-once actions. I also led an idempotent migration of 1,000+ Slack messages into it.</p>
-        <p data-es>Estudio en UTEC en Lima y, desde agosto de 2026, estoy en el equipo que construye UNO, una plataforma nativa en IA para operar empresas. Soy responsable de su experiencia de Comunicaciones y construí un agente de IA con acciones autorizadas por humanos y ejecución exactamente-una-vez. También lideré la migración idempotente de más de 1,000 mensajes de Slack.</p>
-        <p data-en>Before software I co-founded a corporate events company and ran its finances: five projects, over S/350K, about 25% net margin. That's why I care about the boring parts: budgets, follow-through, and things that don't break.</p>
+        <p data-en>I'm studying at UTEC in Lima and, since August 2026, working on the team building UNO, an AI-native platform for running companies: I own its Communications experience and built an AI agent with human-authorized, exactly-once actions.</p>
+        <p data-es>Estudio en UTEC en Lima y, desde agosto de 2026, trabajo en el equipo que construye UNO, una plataforma nativa en IA para operar empresas: soy responsable de su experiencia de Comunicaciones y construí un agente de IA con acciones autorizadas por humanos y ejecución exactamente-una-vez.</p>
+        <p data-en>Before software I co-founded a corporate events company and ran its finances: five projects, over S/350K, about 25% net margin. That's why I care about the boring parts — budgets, follow-through, and things that don't break.</p>
         <p data-es>Antes del software cofundé una productora de eventos corporativos y llevé sus finanzas: cinco proyectos, más de S/350K, alrededor de 25% de margen neto. Por eso me importan las partes aburridas: presupuestos, seguimiento y cosas que no se rompen.</p>
       </div>
       <div class="skills">
@@ -261,9 +354,10 @@
     </div>
   </section>
 
+  <!-- ================= CONTACT ================= -->
   <section class="sec contact" id="contact">
-    <div class="sec-head"><b><span data-en>Get in touch</span><span data-es>Contacto</span></b><span>07</span></div>
-    <h2 style="margin-top:24px"><span data-en>Say<br>hello.</span><span data-es>Escríbeme.</span></h2>
+    <div class="sec-head"><b><span data-en>Get in touch</span><span data-es>Contacto</span></b><span>05</span></div>
+    <h2><span data-en>Say<br>hello.</span><span data-es>Escríbeme.</span></h2>
     <div class="rows">
       <a href="mailto:josuecarrillop02@gmail.com"><span>Email</span><span>josuecarrillop02@gmail.com</span></a>
       <a href="https://github.com/Joshumaster123" target="_blank" rel="noopener"><span>GitHub</span><span>@Joshumaster123</span></a>
@@ -271,28 +365,12 @@
     </div>
   </section>
 
-  <footer>© 2026 Josué Carrillo Paurinotto · <span data-en>Lima, Peru</span><span data-es>Lima, Perú</span></footer>
-</div>
+  <footer>
+    <span>© 2026 Josué Carrillo Paurinotto</span>
+    <span data-en>Lima, Peru · built by hand, checked by machine</span><span data-es>Lima, Perú · hecho a mano, verificado por máquina</span>
+  </footer>
+</main>
 
-<script>
-  (function(){
-    var html=document.documentElement, btns=document.querySelectorAll('.lang button');
-    function set(l){
-      html.lang=l;
-      btns.forEach(function(b){b.setAttribute('aria-pressed', String(b.dataset.set===l))});
-      try{localStorage.setItem('lang',l)}catch(e){}
-    }
-    var saved=null; try{saved=localStorage.getItem('lang')}catch(e){}
-    var q=(new URLSearchParams(location.search)).get('lang');
-    var initial=(q==='es'||q==='en')?q:(saved|| ((navigator.language||'en').toLowerCase().indexOf('es')===0?'es':'en'));
-    set(initial);
-    btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.set)})});
-    var c=document.getElementById('clock');
-    function tick(){
-      try{c.textContent=new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:'America/Lima'}).format(new Date())+' PET'}catch(e){}
-    }
-    tick(); setInterval(tick,30000);
-  })();
-</script>
+<script src="./main.js" defer></script>
 </body>
 </html>
