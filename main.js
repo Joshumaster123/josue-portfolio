@@ -59,6 +59,11 @@
     }, { rootMargin: '0px 0px -8% 0px' });
     rv.forEach(function (el) { io.observe(el); });
   } else { rv.forEach(function (el) { el.classList.add('in'); }); }
+  // Failsafe: never leave content hidden (background tabs pause observers; printing needs everything visible).
+  function revealAll() { rv.forEach(function (el) { el.classList.add('in'); }); }
+  setTimeout(function () { if (document.hidden) revealAll(); }, 1200);
+  document.addEventListener('visibilitychange', function () { if (document.hidden) revealAll(); });
+  addEventListener('beforeprint', revealAll);
 
   /* ---------- nav highlight ---------- */
   var links = document.querySelectorAll('.nav a');
