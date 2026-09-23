@@ -164,31 +164,35 @@
     <!-- MotoYa -->
     <article class="proj rv">
       <div class="info">
-        <p class="pill"><i></i><span data-en>Live demo · front end only</span><span data-es>Demo en vivo · solo front end</span></p>
+        <p class="pill"><i></i><span data-en>Live demo · two-sided prototype</span><span data-es>Demo en vivo · prototipo de dos lados</span></p>
         <h3>MotoYa</h3>
-        <p data-en>A visual product demo for a mototaxi ride-hailing concept, built for an investor pitch: map, route, and a rider-sets-the-price booking flow. Front end only, and labelled as a demo on screen.</p>
-        <p data-es>Demo visual de un concepto de mototaxi por app, hecho para un pitch a inversionistas: mapa, ruta y reserva donde el pasajero propone el precio. Solo front end, y rotulado como demo en pantalla.</p>
-        <ul class="tags"><li>React</li><li>Vite</li><li>CSS animation</li></ul>
+        <p data-en>A prototype of a mototaxi ride-hailing marketplace for small Andean towns: the rider proposes the price and nearby drivers accept or counter. Rider and driver phones stay in sync through a whole trip, from offer to payment and rating.</p>
+        <p data-es>Prototipo de un marketplace de mototaxis para pueblos andinos: el pasajero propone el precio y los conductores cercanos aceptan o contraofertan. Los teléfonos de pasajero y conductor se mantienen sincronizados durante todo el viaje, de la oferta al pago y la calificación.</p>
+        <ul class="tags"><li>React</li><li>Vite</li><li>State machine</li><li>SVG maps</li></ul>
         <details class="why">
           <summary><span data-en>Decisions &amp; lessons</span><span data-es>Decisiones y aprendizajes</span></summary>
           <ul data-en>
-            <li><b>A pitch artifact, not a product.</b> No backend on purpose: the goal was for an investor to feel one flow in ten seconds.</li>
-            <li><b>Honest by default:</b> the screen itself says it is a visual demo, not a real app.</li>
+            <li><b>One state machine, two phones.</b> A single reducer drives both apps, so what the driver taps is what the rider sees. No backend needed to feel like a marketplace.</li>
+            <li><b>Guided tour.</b> A script that "taps" both phones on its own, made for pitches; any real tap on the screen takes over.</li>
+            <li><b>Real geometry.</b> The tuk-tuk follows the actual SVG route, so pickup, trip progress and ETA are computed from the path, not faked with a timer.</li>
+            <li><b>Honest scope.</b> The page states what is real (the full flow) and what is missing to be a product: real map, matching backend, driver verification, payments.</li>
+            <li><b>Started as a single-screen mockup</b> and I rebuilt it as a product page once it felt "beta": the rider-only flow hid half the marketplace.</li>
           </ul>
           <ul data-es>
-            <li><b>Un artefacto de pitch, no un producto.</b> Sin backend a propósito: la meta era que un inversionista sintiera un flujo en diez segundos.</li>
-            <li><b>Honesto por defecto:</b> la propia pantalla dice que es un demo visual, no una app real.</li>
+            <li><b>Una máquina de estados, dos teléfonos.</b> Un solo reducer maneja ambas apps: lo que toca el conductor es lo que ve el pasajero. Sin backend, pero se siente como un marketplace.</li>
+            <li><b>Recorrido guiado.</b> Un guion que "toca" ambos teléfonos solo, pensado para pitches; cualquier toque real toma el control.</li>
+            <li><b>Geometría real.</b> El mototaxi sigue la ruta SVG real: recogida, progreso y ETA salen del trazado, no de un temporizador falso.</li>
+            <li><b>Alcance honesto.</b> La página dice qué es real (el flujo completo) y qué falta para ser producto: mapa real, backend de emparejamiento, verificación de conductores, pagos.</li>
+            <li><b>Empezó como una maqueta de una pantalla</b> y la reconstruí como página de producto cuando se sintió "beta": el flujo solo del pasajero escondía la mitad del marketplace.</li>
           </ul>
         </details>
-        <div class="btn-row">
-          <a class="btn solid" href="https://motoya-five.vercel.app" target="_blank" rel="noopener">Live demo ↗</a>
-          <span class="btn off"><span data-en>Private repo · walkthrough on request</span><span data-es>Repo privado · recorrido a pedido</span></span>
-        </div>
+        <div class="btn-row"><a class="btn solid" href="https://motoya-five.vercel.app" target="_blank" rel="noopener">Live demo ↗</a>
+          <span class="btn off"><span data-en>Private repo · walkthrough on request</span><span data-es>Repo privado · recorrido a pedido</span></span></div>
       </div>
       <div class="frame">
         <div class="chrome"><i></i><i></i><i></i><span class="url">motoya-five.vercel.app</span></div>
-        <div class="viewport contain" data-live="https://motoya-five.vercel.app" data-w="1000" data-h="625" data-title="MotoYa live demo">
-          <img src="./img/motoya.jpg" alt="MotoYa mobile booking screen with map and route" width="1400" height="875" loading="lazy" />
+        <div class="viewport" data-live="https://motoya-five.vercel.app/?embed=1" data-w="1240" data-h="775" data-title="MotoYa live demo: rider and driver phones">
+          <img src="./img/motoya.jpg" alt="MotoYa: rider phone choosing between three driver offers, driver phone showing offer sent" width="1240" height="775" loading="lazy" />
           <button class="try" type="button"><span data-en>▶ Try it live</span><span data-es>▶ Probar en vivo</span></button>
         </div>
       </div>
