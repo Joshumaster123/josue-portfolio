@@ -164,6 +164,45 @@
   <section class="sec" id="work">
     <div class="sec-head"><b><span data-en>Selected work</span><span data-es>Trabajo seleccionado</span></b><span>02</span></div>
 
+    <!-- Workspace demo (flagship, controlled version of the UNO-style work) -->
+    <article class="proj rv" id="workspace">
+      <div class="info">
+        <p class="pill"><i></i><span data-en>Flagship · controlled demo</span><span data-es>Principal · demo controlada</span></p>
+        <h3>Workspace + AI agent</h3>
+        <p data-en>My strongest product work is on UNO, an AI-native platform for running companies, where I own the Communications experience. UNO is confidential, so this is the controlled version: an independent workspace I built from scratch on fictional data, showing the same class of problems (team chat, an AI agent with human-authorized actions, safe imports).</p>
+        <p data-es>Mi trabajo de producto más sólido es en UNO, una plataforma nativa en IA para operar empresas, donde soy responsable de la experiencia de Comunicaciones. UNO es confidencial, así que esta es la versión controlada: un espacio de trabajo independiente que construí desde cero con datos ficticios, y muestra el mismo tipo de problemas (chat de equipo, un agente de IA con acciones autorizadas por humanos, importaciones seguras).</p>
+        <ul class="tags"><li>React</li><li>Optimistic UI</li><li>Idempotency</li><li>Human-in-the-loop</li><li>Agents</li></ul>
+        <details class="why" open>
+          <summary><span data-en>What it demonstrates</span><span data-es>Qué demuestra</span></summary>
+          <ul data-en>
+            <li><b>Human-authorized agent actions.</b> The assistant only proposes; nothing changes until a person approves the exact action.</li>
+            <li><b>Exactly-once execution.</b> Every write carries an execution key. “Approve again” is blocked and logged, and an Agent activity view shows each key and how many replays were stopped.</li>
+            <li><b>Delivery that survives failure.</b> Sends appear instantly, fail visibly, and can be retried. You can even drop the acknowledgements: the server stores the message, the client thinks it failed, and the retry is recognised by its id and delivered once.</li>
+            <li><b>Idempotent import.</b> A fictional Slack export carries external ids; importing it twice adds 0.</li>
+            <li><b>The details of a real chat.</b> Drafts per conversation, unread badges, @mentions, a “New” marker, threads, reactions, edit and delete, search (Ctrl/⌘ K).</li>
+            <li><b>Honest scope.</b> A front-end simulation of the patterns: no server, and the assistant is rule-based, not an LLM. The page says so.</li>
+          </ul>
+          <ul data-es>
+            <li><b>Acciones del agente autorizadas por humanos.</b> El asistente solo propone; nada cambia hasta que una persona aprueba la acción exacta.</li>
+            <li><b>Ejecución exactamente-una-vez.</b> Cada escritura lleva una llave de ejecución. “Aprobar otra vez” se bloquea y queda registrado, y una vista de Actividad del agente muestra cada llave y cuántas repeticiones se detuvieron.</li>
+            <li><b>Entrega que sobrevive a fallos.</b> Los envíos aparecen al instante, fallan de forma visible y se pueden reintentar. Incluso puedes perder las confirmaciones: el servidor guarda el mensaje, el cliente cree que falló, y el reintento se reconoce por su id y se entrega una sola vez.</li>
+            <li><b>Importación idempotente.</b> Una exportación ficticia de Slack trae ids externos; importarla dos veces agrega 0.</li>
+            <li><b>Los detalles de un chat real.</b> Borradores por conversación, no leídos, @menciones, marcador de “Nuevos”, hilos, reacciones, editar y borrar, búsqueda (Ctrl/⌘ K).</li>
+            <li><b>Alcance honesto.</b> Una simulación front-end de los patrones: sin servidor, y el asistente es por reglas, no un LLM. La página lo dice.</li>
+          </ul>
+        </details>
+        <div class="btn-row"><a class="btn solid" href="https://workspace-demo-kohl.vercel.app" target="_blank" rel="noopener">Live demo ↗</a>
+          <span class="btn off"><span data-en>Independent demo · not UNO's code or data</span><span data-es>Demo independiente · no es código ni datos de UNO</span></span></div>
+      </div>
+      <div class="frame">
+        <div class="chrome"><i></i><i></i><i></i><span class="url">workspace-demo-kohl.vercel.app</span></div>
+        <div class="viewport" data-live="https://workspace-demo-kohl.vercel.app/?embed=1" data-w="1240" data-h="775" data-title="Workspace demo: team chat with an AI agent">
+          <img src="./img/workspace.jpg" alt="Workspace demo: the assistant proposes creating a task and waits for approval" width="1240" height="775" loading="lazy" />
+          <button class="try" type="button"><span data-en>▶ Try it live</span><span data-es>▶ Probar en vivo</span></button>
+        </div>
+      </div>
+    </article>
+
     <!-- Press & Breathe -->
     <article class="proj rv">
       <div class="info">
@@ -318,43 +357,6 @@
         <div class="chrome"><i></i><i></i><i></i><span class="url">motoya-five.vercel.app</span></div>
         <div class="viewport" data-live="https://motoya-five.vercel.app/?embed=1" data-w="1240" data-h="775" data-title="MotoYa live demo: rider and driver phones">
           <img src="./img/motoya.jpg" alt="MotoYa: rider phone choosing between three driver offers, driver phone showing offer sent" width="1240" height="775" loading="lazy" />
-          <button class="try" type="button"><span data-en>▶ Try it live</span><span data-es>▶ Probar en vivo</span></button>
-        </div>
-      </div>
-    </article>
-
-    <!-- Workspace demo -->
-    <article class="proj rv" id="workspace">
-      <div class="info">
-        <p class="pill"><i></i><span data-en>Live demo · controlled environment</span><span data-es>Demo en vivo · entorno controlado</span></p>
-        <h3>Workspace demo</h3>
-        <p data-en>A team workspace with an AI agent, built from scratch around a fictional studio so I can show how I design this kind of product without any real company data. Chat, threads and drafts on the surface; the interesting part is the control flow underneath.</p>
-        <p data-es>Un espacio de trabajo de equipo con un agente de IA, construido desde cero alrededor de un estudio ficticio para mostrar cómo diseño este tipo de producto sin datos de ninguna empresa real. Chat, hilos y borradores en la superficie; lo interesante es el flujo de control por debajo.</p>
-        <ul class="tags"><li>React</li><li>Vite</li><li>Optimistic UI</li><li>Idempotency</li><li>Human-in-the-loop</li></ul>
-        <details class="why">
-          <summary><span data-en>Decisions &amp; lessons</span><span data-es>Decisiones y aprendizajes</span></summary>
-          <ul data-en>
-            <li><b>Human-authorized agent actions.</b> The assistant only proposes; nothing changes until a person approves the exact action.</li>
-            <li><b>Exactly-once execution.</b> Each proposal carries an execution key. Pressing “Approve again” is blocked and logged, so a double click or a retry can't create the task twice.</li>
-            <li><b>Sends that survive outages.</b> Messages appear instantly, fail visibly when the network drops and can be retried; a client id stops duplicates.</li>
-            <li><b>Idempotent import.</b> A fictional Slack export carries external ids; importing it twice adds 0.</li>
-            <li><b>Honest scope.</b> A front-end simulation of the patterns: no server, and the assistant is rule-based, not an LLM. The page says so.</li>
-          </ul>
-          <ul data-es>
-            <li><b>Acciones del agente autorizadas por humanos.</b> El asistente solo propone; nada cambia hasta que una persona aprueba la acción exacta.</li>
-            <li><b>Ejecución exactamente-una-vez.</b> Cada propuesta lleva una llave de ejecución. “Aprobar otra vez” se bloquea y queda registrado: un doble clic o un reintento no crea la tarea dos veces.</li>
-            <li><b>Envíos que sobreviven a las caídas.</b> Los mensajes aparecen al instante, fallan de forma visible si cae la red y se pueden reintentar; un id de cliente evita duplicados.</li>
-            <li><b>Importación idempotente.</b> Una exportación ficticia de Slack trae ids externos; importarla dos veces agrega 0.</li>
-            <li><b>Alcance honesto.</b> Una simulación front-end de los patrones: sin servidor, y el asistente es por reglas, no un LLM. La página lo dice.</li>
-          </ul>
-        </details>
-        <div class="btn-row"><a class="btn solid" href="https://workspace-demo-kohl.vercel.app" target="_blank" rel="noopener">Live demo ↗</a>
-          <span class="btn off"><span data-en>Private repo · walkthrough on request</span><span data-es>Repo privado · recorrido a pedido</span></span></div>
-      </div>
-      <div class="frame">
-        <div class="chrome"><i></i><i></i><i></i><span class="url">workspace-demo-kohl.vercel.app</span></div>
-        <div class="viewport" data-live="https://workspace-demo-kohl.vercel.app/?embed=1" data-w="1240" data-h="775" data-title="Workspace demo: team chat with an AI agent">
-          <img src="./img/workspace.jpg" alt="Workspace demo: the assistant proposes creating a task and waits for approval" width="1240" height="775" loading="lazy" />
           <button class="try" type="button"><span data-en>▶ Try it live</span><span data-es>▶ Probar en vivo</span></button>
         </div>
       </div>
