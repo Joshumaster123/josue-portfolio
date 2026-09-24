@@ -66,7 +66,7 @@
     </div>
 
     <div class="stats">
-      <div class="stat"><b>5</b><span data-en>products built end to end, 1 more in progress</span><span data-es>productos construidos de punta a punta, 1 más en curso</span></div>
+      <div class="stat"><b>6</b><span data-en>products and prototypes built end to end</span><span data-es>productos y prototipos construidos de punta a punta</span></div>
       <div class="stat"><b>240+</b><span data-en>automated tests in my agent runtime</span><span data-es>tests automáticos en mi runtime de agentes</span></div>
       <div class="stat"><b>S/350K+</b><span data-en>budgets managed as finance lead (events)</span><span data-es>presupuestos gestionados como líder financiero (eventos)</span></div>
       <div class="stat"><b>2</b><span data-en>n8n automations — 1 live in production</span><span data-es>automatizaciones en n8n — 1 en producción</span></div>
@@ -113,6 +113,49 @@
           <img src="./img/pressbreathe.jpg" alt="Press &amp; Breathe home page" width="1400" height="875" loading="lazy" />
           <button class="try" type="button"><span data-en>▶ Try it live</span><span data-es>▶ Probar en vivo</span></button>
         </div>
+      </div>
+    </article>
+
+    <!-- YogaDetox -->
+    <article class="proj rv" id="yogadetox">
+      <div class="info">
+        <p class="pill"><i></i><span data-en>Live demo · mock backend</span><span data-es>Demo en vivo · backend simulado</span></p>
+        <h3>YogaDetox</h3>
+        <p data-en>A freemium app (web/PWA first, iOS next) for an online yoga and meditation platform: video and audio practices, an AI wellness companion, 1-1 sessions and a premium subscription. The live demo runs against an in-browser mock of the API, so nothing is stored on a server.</p>
+        <p data-es>Una app freemium (primero web/PWA, luego iOS) para una plataforma de yoga y meditación en línea: prácticas en video y audio, un compañero de bienestar con IA, sesiones 1-1 y suscripción premium. El demo en vivo corre contra un mock de la API dentro del navegador, así que no se guarda nada en un servidor.</p>
+        <ul class="tags"><li>Expo</li><li>React Native</li><li>TypeScript</li><li>Laravel API</li><li>Filament</li><li>PWA</li></ul>
+        <details class="why">
+          <summary><span data-en>Decisions &amp; lessons</span><span data-es>Decisiones y aprendizajes</span></summary>
+          <ul data-en>
+            <li><b>Contract first.</b> One API contract drives both the Laravel API and the app, and the app ships with a mock that implements every endpoint with the same error codes, so the front end can be built and demoed without a server.</li>
+            <li><b>Web first, iOS next.</b> A PWA lets the product launch without app-store commission; the iOS build keeps in-app purchases through RevenueCat, as Apple requires for digital subscriptions.</li>
+            <li><b>Business rules live in the product.</b> Free vs premium entitlement with a 7-day trial; 1-1 sessions with a 10-minute hold, a 24-hour reschedule rule and no cancellations.</li>
+            <li><b>A guarded AI companion.</b> Yogui recommends real practices from the catalog, limits free users to a daily message quota, and says it is not a doctor. In this demo its replies are scripted.</li>
+            <li><b>Status, honestly:</b> V1 works end to end locally. It has not launched yet.</li>
+          </ul>
+          <ul data-es>
+            <li><b>Primero el contrato.</b> Un solo contrato de API guía tanto la API en Laravel como la app, y la app trae un mock que implementa cada endpoint con los mismos códigos de error; así el front se construye y se demuestra sin servidor.</li>
+            <li><b>Primero web, luego iOS.</b> Una PWA permite lanzar sin comisión de tienda; el build de iOS mantiene compras dentro de la app con RevenueCat, como exige Apple para suscripciones digitales.</li>
+            <li><b>Las reglas de negocio viven en el producto.</b> Acceso gratis vs premium con prueba de 7 días; sesiones 1-1 con reserva temporal de 10 minutos, regla de 24 horas para reprogramar y sin cancelaciones.</li>
+            <li><b>Un compañero de IA con límites.</b> Yogui recomienda prácticas reales del catálogo, limita a los usuarios gratis con una cuota diaria de mensajes y aclara que no es médico. En este demo sus respuestas están guionadas.</li>
+            <li><b>Estado, con honestidad:</b> la V1 funciona de punta a punta en local. Aún no se ha lanzado.</li>
+          </ul>
+        </details>
+        <div class="btn-row">
+          <a class="btn solid" href="https://yogadetox-demo.vercel.app" target="_blank" rel="noopener">Live demo ↗</a>
+          <span class="btn off"><span data-en>Private repo · walkthrough on request</span><span data-es>Repo privado · recorrido a pedido</span></span>
+        </div>
+        <p class="note"><span data-en>In the demo, tap "Iniciar sesión" — the demo account is prefilled.</span><span data-es>En el demo, toca "Iniciar sesión": la cuenta demo ya viene prellenada.</span></p>
+      </div>
+      <div class="phones">
+        <div class="phone">
+          <div class="viewport" data-live="https://yogadetox-demo.vercel.app" data-w="390" data-h="820" data-title="YogaDetox live demo">
+            <img src="./img/yd-welcome.jpg" alt="YogaDetox welcome screen with the Yoga Detox School logo" width="520" height="1125" loading="lazy" />
+            <button class="try" type="button"><span data-en>▶ Try it live</span><span data-es>▶ Probar</span></button>
+          </div>
+        </div>
+        <div class="phone"><div class="viewport"><img src="./img/yd-home.jpg" alt="YogaDetox home: mood check-in and continue watching" width="520" height="1125" loading="lazy" /></div></div>
+        <div class="phone"><div class="viewport"><img src="./img/yd-yogui.jpg" alt="Yogui, the AI companion, recommending practices from the catalog" width="520" height="1125" loading="lazy" /></div></div>
       </div>
     </article>
 
@@ -267,21 +310,6 @@
       </div>
     </article>
 
-    <!-- YogaDetox (in development) -->
-    <article class="proj rv" id="yogadetox">
-      <div class="info">
-        <p class="pill soon"><i></i><span data-en>In development · not public yet</span><span data-es>En desarrollo · aún no es público</span></p>
-        <h3>YogaDetox</h3>
-        <p data-en>A mobile app (iOS first) for an online yoga course, with in-app subscriptions. I'm building it now, and it doesn't work end to end yet — so there is no demo, on purpose.</p>
-        <p data-es>Una app móvil (primero iOS) para un curso de yoga en línea, con suscripciones dentro de la app. La estoy construyendo ahora y aún no funciona de punta a punta — por eso no hay demo, a propósito.</p>
-        <ul class="tags"><li>Expo</li><li>React Native</li><li>TypeScript</li><li>RevenueCat</li></ul>
-        <div class="btn-row"><span class="btn off"><span data-en>Work in progress</span><span data-es>En construcción</span></span></div>
-      </div>
-      <div class="flow" style="aspect-ratio:auto;min-height:160px;justify-content:center;text-align:center">
-        <div><div style="font-family:var(--display);font-size:clamp(30px,4.4vw,56px);line-height:.95;text-transform:uppercase">Building<br>in public</div>
-        <p class="note"><span data-en>Updated when there is something that works</span><span data-es>Se actualiza cuando haya algo que funcione</span></p></div>
-      </div>
-    </article>
   </section>
 
   <!-- ================= AI AGENT ================= -->
