@@ -89,7 +89,7 @@
     btn.addEventListener('click', function () {
       var w = parseInt(vp.dataset.w || '1280', 10), h = parseInt(vp.dataset.h || '800', 10);
       var f = document.createElement('iframe');
-      f.src = vp.dataset.live;
+      f.src = vp.dataset.live + (vp.dataset.live.indexOf('?') > -1 ? '&' : '?') + 'lang=' + html.lang; // demos that support ?lang= follow the portfolio's language
       f.title = vp.dataset.title || 'Live preview';
       f.width = w; f.height = h;
       f.loading = 'lazy';
