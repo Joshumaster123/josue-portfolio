@@ -224,3 +224,32 @@ html[lang="es"] [data-en]{display:none !important}
 .shot-p figcaption{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);padding:7px 2px 0}
 @media (max-width:900px){.portrait{position:static;width:120px;margin:0 0 22px}}
 @media (max-width:520px){.gallery{columns:2 150px;column-gap:10px}}
+
+/* ---------- automation section ---------- */
+.sub{max-width:62ch;color:var(--gray);font-size:16px;margin:16px 0 0}
+.patterns{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--soft);margin-top:26px}
+.patterns>div{padding:18px 18px 18px 0;display:flex;flex-direction:column;gap:6px}
+.patterns>div+div{padding-left:18px;border-left:1px solid var(--soft)}
+.patterns b{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:20px;line-height:1.05}
+.patterns span{color:var(--gray);font-size:14px}
+.autos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:22px}
+.auto{border:1.5px solid var(--ink);background:var(--card);padding:clamp(18px,2.4vw,28px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.auto h3{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(26px,3vw,36px);line-height:1;margin:0}
+.auto p{margin:0;color:var(--gray);font-size:15px}
+.auto .pill{margin:0;color:var(--accent)}
+.auto .steps{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-family:var(--mono);font-size:11px;letter-spacing:.04em}
+.auto .steps span{border:1.5px solid var(--ink);background:var(--bg);padding:4px 8px;border-radius:5px}
+.auto .steps span.ai{background:var(--ink);color:var(--bg)}
+.auto .steps i{font-style:normal;color:var(--accent)}
+.auto .saved{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+.auto .harden{font-size:13.5px;border-left:2px solid var(--accent);padding-left:12px}
+.auto .harden b{color:var(--ink)}
+.auto .harden a{color:var(--accent);font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:0}
+.auto .tags{margin:auto 0 0}
+.auto:nth-child(5){grid-column:1 / -1}
+@media (max-width:900px){
+  .patterns{grid-template-columns:1fr 1fr}
+  .patterns>div:nth-child(3){padding-left:0;border-left:0}
+  .patterns>div:nth-child(n+3){border-top:1px solid var(--soft)}
+  .autos{grid-template-columns:1fr}
+}

@@ -32,8 +32,8 @@
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Josué Carrillo">J.C.</a>
     <nav class="nav" aria-label="Sections">
+      <a href="#automation"><span data-en>Automation</span><span data-es>Automatización</span></a>
       <a href="#work"><span data-en>Work</span><span data-es>Trabajo</span></a>
-      <a href="#agent"><span data-en>AI agent</span><span data-es>Agente IA</span></a>
       <a href="#approach"><span data-en>Approach</span><span data-es>Enfoque</span></a>
       <a href="#about"><span data-en>About</span><span data-es>Sobre mí</span></a>
       <a href="#contact"><span data-en>Contact</span><span data-es>Contacto</span></a>
@@ -56,10 +56,10 @@
     <div class="hero-row">
       <p class="tagline"><span data-en>I turn messy processes into working systems.</span><span data-es>Convierto procesos desordenados en sistemas que funcionan.</span></p>
       <div class="hero-side">
-        <p data-en>AI-native product builder. I ship the whole chain — interface, data, automation, deploy — and check it works with real data before I call it done.</p>
-        <p data-es>Product builder nativo en IA. Entrego la cadena completa — interfaz, datos, automatización, despliegue — y verifico que funcione con datos reales antes de darla por terminada.</p>
+        <p data-en>AI automation builder. I design workflows and agents that run on real data — triage, extraction, routing, reporting — and I check every one with real executions before I call it done.</p>
+        <p data-es>Constructor de automatización con IA. Diseño flujos y agentes que corren con datos reales — triage, extracción, ruteo, reportes — y reviso cada uno con ejecuciones reales antes de darlo por terminado.</p>
         <div class="btn-row">
-          <a class="btn solid" href="#work"><span data-en>See the work ↓</span><span data-es>Ver trabajo ↓</span></a>
+          <a class="btn solid" href="#automation"><span data-en>See the automations ↓</span><span data-es>Ver las automatizaciones ↓</span></a>
           <a class="btn" href="./resume.pdf" download><span data-en>Résumé (PDF)</span><span data-es>CV (PDF)</span></a>
         </div>
       </div>
@@ -69,7 +69,7 @@
       <div class="stat"><b>7</b><span data-en>products and prototypes built end to end</span><span data-es>productos y prototipos construidos de punta a punta</span></div>
       <div class="stat"><b>240+</b><span data-en>automated tests in my agent runtime</span><span data-es>tests automáticos en mi runtime de agentes</span></div>
       <div class="stat"><b>S/350K+</b><span data-en>budgets managed as finance lead (events)</span><span data-es>presupuestos gestionados como líder financiero (eventos)</span></div>
-      <div class="stat"><b>2</b><span data-en>n8n automations — 1 live in production</span><span data-es>automatizaciones en n8n — 1 en producción</span></div>
+      <div class="stat"><b>5</b><span data-en>n8n workflows tested with real runs — 1 live in production</span><span data-es>flujos en n8n probados con ejecuciones reales — 1 en producción</span></div>
     </div>
   </header>
 
@@ -78,9 +78,91 @@
     <span>TypeScript</span><span>React</span><span>Next.js</span><span>Laravel</span><span>PostgreSQL</span><span>Supabase</span><span>n8n</span><span>AI agents</span><span>Tool-calling</span><span>OpenAI API</span><span>Claude Code</span><span>Codex</span><span>Python</span><span>SQL</span><span>Vercel</span><span>Git worktrees</span><span>Testing</span>
   </div></div>
 
+  <!-- ================= AUTOMATION ================= -->
+  <section class="sec" id="automation">
+    <div class="sec-head"><b><span data-en>Automation</span><span data-es>Automatización</span></b><span>01</span></div>
+    <p class="lead rv"><span data-en>Five workflows, each tested with real executions, not screenshots.</span><span data-es>Cinco flujos, cada uno probado con ejecuciones reales, no capturas.</span></p>
+    <p class="sub rv" data-en>n8n is where I build. Every workflow below runs on my own instance, is wired to real data (Data Tables, Gmail, an LLM), and I checked its output before writing it down. Where a run exposed a flaw, the fix is listed.</p>
+    <p class="sub rv" data-es>n8n es donde construyo. Cada flujo corre en mi propia instancia, está conectado a datos reales (Data Tables, Gmail, un LLM) y revisé su salida antes de escribirlo. Donde una ejecución mostró un fallo, la corrección está indicada.</p>
+
+    <div class="patterns rv">
+      <div><b data-en>Structured, not parsed</b><b data-es>Estructurado, no parseado</b><span data-en>The model returns typed fields; nothing scrapes its prose.</span><span data-es>El modelo devuelve campos tipados; nadie extrae datos de su prosa.</span></div>
+      <div><b data-en>Idempotent writes</b><b data-es>Escrituras idempotentes</b><span data-en>Upserts keyed on an id, so a retry updates instead of duplicating.</span><span data-es>Upserts con una llave, así un reintento actualiza en vez de duplicar.</span></div>
+      <div><b data-en>Compute, then narrate</b><b data-es>Calcular y luego narrar</b><span data-en>Numbers come from nodes; the AI only writes about them.</span><span data-es>Los números salen de nodos; la IA solo escribe sobre ellos.</span></div>
+      <div><b data-en>A human on risk</b><b data-es>Un humano ante el riesgo</b><span data-en>Urgent or angry cases escalate with a draft; nothing auto-replies.</span><span data-es>Los casos urgentes o de enojo escalan con un borrador; nada responde solo.</span></div>
+    </div>
+
+    <div class="autos">
+
+      <article class="auto rv">
+        <p class="pill"><i></i><span data-en>Tested · 1 real run</span><span data-es>Probado · 1 ejecución real</span></p>
+        <h3>Meeting notes → action items</h3>
+        <p data-en>A transcript comes in through a webhook. An AI agent returns a summary, decisions and action items as structured data. Each item is saved with a dedupe key and a follow-up digest is emailed.</p>
+        <p data-es>Entra una transcripción por webhook. Un agente de IA devuelve resumen, decisiones y acciones como datos estructurados. Cada acción se guarda con una llave anti-duplicados y se envía un correo de seguimiento.</p>
+        <div class="steps" aria-label="Webhook, AI extraction, split, dedupe key, Data Table upsert, Gmail"><span>Webhook</span><i>→</i><span class="ai">AI extract</span><i>→</i><span>Split</span><i>→</i><span>Dedupe key</span><i>→</i><span>Data Table</span><i>→</i><span>Gmail</span></div>
+        <pre class="saved"><span class="k">saved</span>  Finish pricing page copy · <span class="v">Ana · Thu · high</span>
+<span class="k">saved</span>  Confirm API rate limits on staging · <span class="v">Bruno · Tomorrow · high</span>
+<span class="k">saved</span>  Send dark mode contrast fixes · <span class="v">Carla · Wed · high</span>
+<span class="k">saved</span>  Start support macros after the FAQ · <span class="v">Diego · No date · medium</span>
+<span class="mail">skipped: "update the status page footer at some point" (no owner, no commitment)</span></pre>
+        <p class="harden" data-en><b>Guardrail that worked:</b> the vague remark was not turned into a task. <b>Harden next:</b> the dedupe key uses model-written text; in production I would key on the meeting id and skip before calling the model.</p>
+        <p class="harden" data-es><b>Guardrail que funcionó:</b> el comentario vago no se convirtió en tarea. <b>Por endurecer:</b> la llave usa texto escrito por el modelo; en producción usaría el id de la reunión y omitiría antes de llamar al modelo.</p>
+        <ul class="tags"><li>n8n</li><li>Webhook</li><li>LLM</li><li>Data Tables</li><li>Gmail</li></ul>
+      </article>
+
+      <article class="auto rv">
+        <p class="pill"><i></i><span data-en>Tested · 3 real runs</span><span data-es>Probado · 3 ejecuciones reales</span></p>
+        <h3>Support ticket triage</h3>
+        <p data-en>Every inbound message is classified (category, urgency, sentiment), gets a drafted reply and is saved by ticket id. Urgent or angry tickets are escalated by email with the draft; routine ones are not.</p>
+        <p data-es>Cada mensaje entrante se clasifica (categoría, urgencia, sentimiento), recibe un borrador de respuesta y se guarda por id de ticket. Los urgentes o de enojo se escalan por correo con el borrador; los rutinarios no.</p>
+        <div class="steps" aria-label="Webhook, AI classify, decide route, Data Table upsert, IF, Gmail"><span>Webhook</span><i>→</i><span class="ai">AI classify</span><i>→</i><span>Route</span><i>→</i><span>Data Table</span><i>→</i><span>IF</span><i>→</i><span>Gmail</span></div>
+        <pre class="saved"><span class="k">T-1001</span> billing · <span class="v">high · negative</span> → <span class="mail">escalated ✉ team alerted with draft</span>
+<span class="k">T-1002</span> how_to · <span class="v">low · neutral</span> → reply_drafted (no email)</pre>
+        <p class="harden" data-en><b>Bug found in a run:</b> the first draft for T-1002 described buttons and menus the model cannot know. I tightened the prompt to forbid product details, re-ran it, and the same row updated (no duplicate) with a safe reply.</p>
+        <p class="harden" data-es><b>Bug hallado en una ejecución:</b> el primer borrador de T-1002 describía botones y menús que el modelo no puede conocer. Ajusté el prompt para prohibir detalles del producto, volví a correrlo y la misma fila se actualizó (sin duplicado) con una respuesta segura.</p>
+        <ul class="tags"><li>n8n</li><li>Structured output</li><li>Upsert</li><li>Routing</li></ul>
+      </article>
+
+      <article class="auto rv">
+        <p class="pill"><i></i><span data-en>Tested · scheduled Monday 8:00</span><span data-es>Probado · programado lunes 8:00</span></p>
+        <h3>Weekly ops digest</h3>
+        <p data-en>Reads three Data Tables (leads, tickets, action items), computes the numbers in plain nodes, and only then asks an AI to write what needs attention. It reads the other workflows' output: the automations form a system.</p>
+        <p data-es>Lee tres Data Tables (leads, tickets, acciones), calcula los números en nodos simples y solo después pide a una IA que redacte lo que requiere atención. Lee la salida de los otros flujos: las automatizaciones forman un sistema.</p>
+        <div class="steps" aria-label="Schedule, three Data Tables, compute numbers, AI narrative, Gmail"><span>Schedule</span><i>→</i><span>3× Data Table</span><i>→</i><span>Compute</span><i>→</i><span class="ai">AI writes</span><i>→</i><span>Gmail</span></div>
+        <pre class="saved"><span class="k">leads</span> 5 (<span class="v">2 high urgency</span>)  <span class="k">tickets</span> 2 (<span class="v">1 escalated</span>)  <span class="k">open actions</span> <span class="v">4</span>
+<span class="mail">✉ digest: 4 attention items, 3 follow-ups, every name and number taken from the tables</span></pre>
+        <p class="harden" data-en><b>Design choice:</b> LLMs miscount, so counts are computed deterministically and handed to the model as facts it must not recount. <b>Harden next:</b> an error workflow so a failed Monday run alerts me.</p>
+        <p class="harden" data-es><b>Decisión de diseño:</b> los LLM cuentan mal, así que los conteos se calculan de forma determinista y se pasan al modelo como hechos que no debe recontar. <b>Por endurecer:</b> un flujo de errores para que una falla del lunes me avise.</p>
+        <ul class="tags"><li>n8n</li><li>Schedule</li><li>Data Tables</li><li>LLM</li></ul>
+      </article>
+
+      <article class="auto rv">
+        <p class="pill"><i></i><span data-en>Tested · 3 real runs</span><span data-es>Probado · 3 ejecuciones reales</span></p>
+        <h3>Lead-qualifying agent</h3>
+        <p data-en>A conversational agent with memory that qualifies real-estate leads, saves them as it learns each field and emails an advisor only when urgency is high.</p>
+        <p data-es>Un agente conversacional con memoria que califica leads inmobiliarios, los guarda a medida que aprende cada dato y avisa a un asesor solo cuando la urgencia es alta.</p>
+        <div class="steps" aria-label="Chat, AI agent with memory, tools: save lead and notify advisor"><span>Chat</span><i>→</i><span class="ai">Agent + memory</span><i>→</i><span>Save lead</span><i>+</i><span>Notify advisor</span></div>
+        <p class="harden"><a href="#agent"><span data-en>Full breakdown with real runs ↓</span><span data-es>Desglose completo con ejecuciones reales ↓</span></a></p>
+        <ul class="tags"><li>n8n</li><li>AI Agent</li><li>Tool calling</li><li>Memory</li></ul>
+      </article>
+
+      <article class="auto rv">
+        <p class="pill"><i></i><span data-en>Live · in production</span><span data-es>En vivo · producción</span></p>
+        <h3>Application intake pipeline</h3>
+        <p data-en>A public form writes to the database through a server route; an authenticated webhook triggers n8n, which sends a personalized confirmation. Verified with a real submission.</p>
+        <p data-es>Un formulario público escribe a la base de datos por una ruta de servidor; un webhook autenticado dispara n8n, que envía una confirmación personalizada. Verificado con un envío real.</p>
+        <div class="steps" aria-label="Form, server route, Supabase, authenticated webhook, n8n, email"><span>Form</span><i>→</i><span>Server route</span><i>→</i><span>Supabase</span><i>→</i><span>Webhook + secret</span><i>→</i><span>n8n</span><i>→</i><span>Email</span></div>
+        <p class="harden"><a href="#work"><span data-en>See Press &amp; Breathe ↓</span><span data-es>Ver Press &amp; Breathe ↓</span></a></p>
+        <ul class="tags"><li>n8n</li><li>Supabase</li><li>Webhook auth</li><li>Next.js</li></ul>
+      </article>
+
+    </div>
+    <p class="note"><span data-en>Runs are on my own n8n instance with fictional inputs. The workflows are not exposed publicly: I walk through them live in interviews.</span><span data-es>Las ejecuciones son en mi propia instancia de n8n con datos ficticios. Los flujos no están expuestos públicamente: los recorro en vivo en entrevistas.</span></p>
+  </section>
+
   <!-- ================= WORK ================= -->
   <section class="sec" id="work">
-    <div class="sec-head"><b><span data-en>Selected work</span><span data-es>Trabajo seleccionado</span></b><span>01</span></div>
+    <div class="sec-head"><b><span data-en>Selected work</span><span data-es>Trabajo seleccionado</span></b><span>02</span></div>
 
     <!-- Press & Breathe -->
     <article class="proj rv">
@@ -351,7 +433,7 @@
 
   <!-- ================= AI AGENT ================= -->
   <section class="sec" id="agent">
-    <div class="sec-head"><b><span data-en>AI agent · n8n</span><span data-es>Agente de IA · n8n</span></b><span>02</span></div>
+    <div class="sec-head"><b><span data-en>Deep dive · lead agent</span><span data-es>A fondo · agente de leads</span></b><span>03</span></div>
     <p class="lead rv"><span data-en>A lead-qualifying agent that behaves like a person and saves like a system.</span><span data-es>Un agente que califica leads como una persona y guarda como un sistema.</span></p>
 
     <div class="rv agentflow">
@@ -423,7 +505,7 @@
 
   <!-- ================= APPROACH ================= -->
   <section class="sec" id="approach">
-    <div class="sec-head"><b><span data-en>How I work</span><span data-es>Cómo trabajo</span></b><span>03</span></div>
+    <div class="sec-head"><b><span data-en>How I work</span><span data-es>Cómo trabajo</span></b><span>04</span></div>
     <div class="principles rv">
       <div class="principle"><b data-en>Verify, don't trust</b><b data-es>Verificar, no confiar</b>
         <p data-en>I use AI coding agents every day, and I read, run and try to break everything they produce before it ships.</p>
@@ -442,7 +524,7 @@
 
   <!-- ================= ABOUT ================= -->
   <section class="sec" id="about">
-    <div class="sec-head"><b><span data-en>About</span><span data-es>Sobre mí</span></b><span>04</span></div>
+    <div class="sec-head"><b><span data-en>About</span><span data-es>Sobre mí</span></b><span>05</span></div>
     <div class="about">
       <div>
         <p class="serif" data-en>Industrial engineer by training, builder by practice.</p>
@@ -463,7 +545,7 @@
 
   <!-- ================= CONTACT ================= -->
   <section class="sec contact" id="contact">
-    <div class="sec-head"><b><span data-en>Get in touch</span><span data-es>Contacto</span></b><span>05</span></div>
+    <div class="sec-head"><b><span data-en>Get in touch</span><span data-es>Contacto</span></b><span>06</span></div>
     <h2><span data-en>Say<br>hello.</span><span data-es>Escríbeme.</span></h2>
     <div class="rows">
       <a href="mailto:josuecarrillop02@gmail.com"><span>Email</span><span>josuecarrillop02@gmail.com</span></a>
