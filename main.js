@@ -102,4 +102,35 @@
       else addEventListener('resize', function () { fit(vp, f, w); });
     });
   });
+
+  /* ---------- personal photos (portrait + gallery), only if photos.json has entries ---------- */
+  function el(tag, attrs, html) {
+    var n = document.createElement(tag);
+    Object.keys(attrs || {}).forEach(function (k) { n.setAttribute(k, attrs[k]); });
+    if (html) n.innerHTML = html;
+    return n;
+  }
+  function esc(t) { return String(t || '').replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); }
+  fetch('./photos.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+    if (!d) return;
+    if (d.portrait && d.portrait.src) {
+      var hero = document.querySelector('.hero');
+      var fig = el('figure', { class: 'portrait' },
+        '<img src="' + esc(d.portrait.src) + '" width="' + (d.portrait.w || 800) + '" height="' + (d.portrait.h || 1000) + '" alt="' + esc(d.portrait.alt_en || 'Josué Carrillo') + '" decoding="async" />');
+      if (hero) hero.insertBefore(fig, hero.firstChild);
+    }
+    if (d.gallery && d.gallery.length) {
+      var items = d.gallery.map(function (g) {
+        var cap = (g.cap_en || g.cap_es)
+          ? '<figcaption><span data-en>' + esc(g.cap_en || g.cap_es) + '</span><span data-es>' + esc(g.cap_es || g.cap_en) + '</span></figcaption>' : '';
+        return '<figure class="shot-p"><img src="' + esc(g.src) + '" width="' + (g.w || 1200) + '" height="' + (g.h || 800) + '" alt="' + esc(g.alt_en || g.cap_en || '') + '" loading="lazy" decoding="async" />' + cap + '</figure>';
+      }).join('');
+      var sec = el('section', { class: 'sec', id: 'beyond' },
+        '<div class="sec-head"><b><span data-en>Beyond the code</span><span data-es>Más allá del código</span></b><span>—</span></div>' +
+        '<p class="lead"><span data-en>Training, camps and trips: where the discipline comes from.</span><span data-es>Entrenamiento, campamentos y viajes: de dónde viene la disciplina.</span></p>' +
+        '<div class="gallery">' + items + '</div>');
+      var about = document.getElementById('about');
+      if (about && about.parentNode) about.parentNode.insertBefore(sec, about);
+    }
+  }).catch(function () { /* no photos yet: nothing to show */ });
 })();
